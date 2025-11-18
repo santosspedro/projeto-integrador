@@ -1,6 +1,5 @@
 import socket
-
-import socket
+from funcao_sort import funcao_sort as fs
 
 host = 'localhost'
 
@@ -13,9 +12,9 @@ MEU_SERVIDOR = (host, minha_porta)
 tcp.connect(MEU_SERVIDOR)
 print(f"Conectando ao servidor: {MEU_SERVIDOR}")
 
-teste = "Salve!"
-tcp.sendall(teste.encode("utf-8"))
-print(f"Mensagem enviada: {teste}")
+insira_seus_numeros = input("Insira seus números: ")
+tcp.sendall(insira_seus_numeros.encode("utf-8"))
+print(f"Mensagem enviada: {insira_seus_numeros}")
 
 resposta = tcp.recv(1024).decode("utf-8")
 print(f"Resposta recebida: {resposta}")
