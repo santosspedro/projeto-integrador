@@ -39,7 +39,6 @@ try:
 
   resposta = " ".join(str(n) for n in numeros_ordenados)
 
-  resposta = "Recebido"
   conexao.sendall(resposta.encode("utf-8"))
   print(f"Resposta enviada: {resposta}")
 except ValueError:
