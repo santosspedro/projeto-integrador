@@ -57,6 +57,16 @@ class ClienteGUI:
         except:
             messagebox.showerror("Erro", "Erro ao enviar ou receber dados do servidor.")
 
+    def fechar(self):
+        if self.conectado and self.sock:
+            try:
+                self.sock.close()
+            except:
+                pass
+        self.master.destroy()
+
+
 root = tk.Tk()
 app = ClienteGUI(root)
+root.protocol("WM_DELETE_WINDOW", app.fechar)
 root.mainloop()
