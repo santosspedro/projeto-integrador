@@ -1,13 +1,20 @@
-# projeto-integrador
+Passo a passo para executar:
 
-## Protocolo de comunicação cliente-servidor
+- Abra um terminal na pasta do projeto.
+- Execute: python server.py
+- Logo em seguida o servidor ira começar a rodar na sua porta 5000
+- Em outro terminal, execute: python cliente_gui.py
 
-A comunicação entre cliente e servidor é feita via TCP, usando mensagens de texto em UTF-8.
+  obs:
+- servidor ta suportando multiplas conexão mas sincrona.
 
-### Formato da mensagem enviada pelo cliente
+requisitos:
 
-O cliente envia **uma linha de texto** contendo uma lista de **números inteiros separados por espaço**.  
-Exemplo:
+- python 3.12.5
 
-```text
-10 5 3 20
+referências:
+
+- criando servidor/cliente com python: https://www.youtube.com/watch?v=UfcBDlgzAnc
+- o que é tcp ip: http://fortinet.com/resources/cyberglossary/tcp-ip
+- biblioteca socket python: https://docs.python.org/pt-br/3.9/howto/sockets.html
+- biblioteca tkinter python: https://docs.python.org/pt-br/3/library/tk.html
