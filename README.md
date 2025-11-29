@@ -11,3 +11,10 @@ Passo a passo para executar:
 requisitos:
 
 - python 3.12.5
+
+referências:
+
+- criando servidor/cliente com python: https://www.youtube.com/watch?v=UfcBDlgzAnc
+- o que é tcp ip: http://fortinet.com/resources/cyberglossary/tcp-ip
+- biblioteca socket python: https://docs.python.org/pt-br/3.9/howto/sockets.html
+- biblioteca tkinter python: https://docs.python.org/pt-br/3/library/tk.html
