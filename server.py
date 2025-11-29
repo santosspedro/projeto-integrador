@@ -8,7 +8,7 @@ def tratar_cliente(conexao: socket.socket, endereco):
         dados = conexao.recv(1024).decode("utf-8").strip()
         print(f"Mensagem recebida: '{dados}'")
         if not dados:
-            print("enhum dado recebido deste cliente.")
+            print("Nenhum dado recebido deste cliente.")
             return
         partes = dados.split()
         numeros = [int(p) for p in partes]

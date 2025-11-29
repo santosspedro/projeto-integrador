@@ -16,20 +16,20 @@ except ConnectionRefusedError:
     tcp.close()
     exit(1)
 
-insira_seus_numeros = input("Insira seus números (separados por espaço): ").strip()
-partes = insira_seus_numeros.split()
+while True:
+    insira_seus_numeros = input("Insira seus números (separados por espaço): ").strip()
+    partes = insira_seus_numeros.split()
 
-if not partes:
-    print("Nenhum número inserido. Tente novamente.")
-    tcp.close()
-    exit(1)
-
-try:
-    _ = [int(p) for p in partes]
-except ValueError:
-    print("Entrada inválida! Use apenas números inteiros separados por espaço.")
-    tcp.close()
-    exit(1)
+    if not partes:
+        print("Nenhum número inserido. Tente novamente.")
+        continue
+    
+    try:
+        _ = [int(p) for p in partes]
+        break
+    except ValueError:
+        print("Entrada inválida! Use apenas números inteiros separados por espaço.")
+        continue  
 
 try:
     tcp.sendall(insira_seus_numeros.encode("utf-8"))
