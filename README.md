@@ -1,13 +1,13 @@
-# projeto-integrador
+Passo a passo para executar:
 
-## Protocolo de comunicação cliente-servidor
+- Abra um terminal na pasta do projeto.
+- Execute: python server.py
+- Logo em seguida o servidor ira começar a rodar na sua porta 5000
+- Em outro terminal, execute: python cliente_gui.py
 
-A comunicação entre cliente e servidor é feita via TCP, usando mensagens de texto em UTF-8.
+  obs:
+- servidor ta suportando multiplas conexão mas sincrona.
 
-### Formato da mensagem enviada pelo cliente
+requisitos:
 
-O cliente envia **uma linha de texto** contendo uma lista de **números inteiros separados por espaço**.  
-Exemplo:
-
-```text
-10 5 3 20
+- python 3.12.5
