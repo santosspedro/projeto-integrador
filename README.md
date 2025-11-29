@@ -6,8 +6,7 @@ Passo a passo para executar:
 - Em outro terminal, execute: python cliente.py ou se preferir utilizar nossa tentativa de interface executar: python cliente_gui.py
 
   obs:
-- servidor ta suportando multiplas conexão mas sincrona.
-
+- servidor ta suportando multiplas conexões.
 requisitos:
 
 - python 3.12.5
