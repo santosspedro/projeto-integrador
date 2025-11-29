@@ -1,47 +1,47 @@
 import socket
 from funcao_sort import funcao_sort as fs
-HOST = "localhost"
+HOST = "0.0.0.0"
 PORT = 5000
 def tratar_cliente(conexao: socket.socket, endereco):
-    print(f"[SERVER] Cliente conectado: {endereco}")
+    print(f"Cliente conectado: {endereco}")
     try:
         dados = conexao.recv(1024).decode("utf-8").strip()
-        print(f"[SERVER] Mensagem recebida: '{dados}'")
+        print(f"Mensagem recebida: '{dados}'")
         if not dados:
-            print("[SERVER] Nenhum dado recebido deste cliente.")
+            print("enhum dado recebido deste cliente.")
             return
         partes = dados.split()
         numeros = [int(p) for p in partes]
-        print(f"[SERVER] Lista recebida: {numeros}")
+        print(f"Lista recebida: {numeros}")
         numeros_ordenados = fs(numeros)
-        print(f"[SERVER] Lista ordenada: {numeros_ordenados}")
+        print(f"Lista ordenada: {numeros_ordenados}")
         resposta = " ".join(str(n) for n in numeros_ordenados)
         conexao.sendall(resposta.encode("utf-8"))
-        print(f"[SERVER] Resposta enviada: '{resposta}'")
+        print(f"Resposta enviada: '{resposta}'")
     except ValueError:
         erro_msg = "ERRO: envie apenas números inteiros separados por espaço."
         conexao.sendall(erro_msg.encode("utf-8"))
-        print("[SERVER] Erro ao converter para int. Mensagem de erro enviada.")
+        print("Erro ao converter para int. Mensagem de erro enviada.")
     finally:
         conexao.close()
-        print(f"[SERVER] Conexão com {endereco} encerrada.")
+        print(f"Conexão com {endereco} encerrada.")
 def main():
     tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     tcp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    print("[SERVER] Socket criado.")
+    print("Socket criado.")
     servidor = (HOST, PORT)
     tcp.bind(servidor)
-    print(f"[SERVER] Bind feito em {HOST}:{PORT}")
+    print(f"Bind feito em {HOST}:{PORT}")
     tcp.listen(5)
-    print("[SERVER] Aguardando conexões... (Ctrl+C para parar)")
+    print("Aguardando conexões...)")
     try:
         while True:
             conexao, endereco = tcp.accept()
             tratar_cliente(conexao, endereco)
     except KeyboardInterrupt:
-        print("\n[SERVER] Encerrando servidor (Ctrl+C detectado).")
+        print("Encerrando servidor")
     finally:
         tcp.close()
-        print("[SERVER] Socket do servidor fechado.")
+        print("Socket do servidor fechado.")
 if __name__ == "__main__":
     main()
